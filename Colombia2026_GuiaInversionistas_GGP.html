@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elecciones Colombia 2026 — Guía para Inversionistas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #002147;
+    --gold: #C8A951;
+    --gold-light: #F0D98A;
+    --blue: #1A5C8A;
+    --red: #B03A2E;
+    --red-light: #FDECEA;
+    --green: #1A7A4A;
+    --green-light: #E8F8EF;
+    --orange: #C0672A;
+    --orange-light: #FEF3E8;
+    --gray: #F4F5F7;
+    --dark: #1C1C2E;
+    --text: #2D3748;
+    --muted: #718096;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #F0EDE6;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #001428 0%, #002147 55%, #003366 100%);
+    padding: 52px 24px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(200,169,81,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-flag {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 7vw, 42px);
+    color: var(--gold);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-size: clamp(14px, 4vw, 17px);
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 24px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+  .hero-assets {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .asset-pill {
+    background: rgba(200,169,81,0.2);
+    border: 1px solid rgba(200,169,81,0.5);
+    color: var(--gold-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .hero-firma {
+    border-top: 1px solid rgba(200,169,81,0.3);
+    padding-top: 18px;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .hero-firma strong { color: var(--gold); font-size: 14px; }
+  .hero-dates {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .date-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 10px 18px;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+  }
+  .date-badge .dt { font-size: 15px; font-weight: 700; color: var(--gold); display: block; }
+
+  /* ── WRAPPER ── */
+  .wrapper { max-width: 680px; margin: 0 auto; padding: 0 16px 60px; }
+
+  /* ── SECTION ── */
+  .section {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 22px;
+    margin-top: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 5vw, 22px);
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 16px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+  .callout-orange { background: var(--orange-light); border-color: var(--orange); color: #7B3F10; }
+  .callout-red    { background: var(--red-light);    border-color: var(--red);    color: #7B1E1E; }
+  .callout-green  { background: var(--green-light);  border-color: var(--green);  color: #0F4E30; }
+  .callout-navy   { background: #EDF2F7;             border-color: var(--navy);   color: var(--navy); }
+
+  /* ── STAT CARDS ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .stat-card {
+    background: var(--gray);
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .stat-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .stat-value { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--navy); font-weight: 700; line-height: 1.2; }
+  .stat-change { font-size: 12px; margin-top: 3px; font-weight: 600; }
+  .up   { color: var(--green); }
+  .down { color: var(--red); }
+
+  /* ── CANDIDATE CARDS ── */
+  .cand-list { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .cand-card {
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cand-card.left  { background: #FDF2F2; border: 1.5px solid #F5C6C6; }
+  .cand-card.right { background: var(--green-light); border: 1.5px solid #B7DFC8; }
+  .cand-card.grey  { background: var(--gray); border: 1.5px solid #DDD; }
+  .cand-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    min-width: 64px;
+    text-align: center;
+    line-height: 1;
+  }
+  .cand-card.left  .cand-pct  { color: var(--red); }
+  .cand-card.right .cand-pct  { color: var(--green); }
+  .cand-card.grey  .cand-pct  { color: var(--muted); }
+  .cand-info { flex: 1; }
+  .cand-name { font-weight: 700; font-size: 15px; color: var(--dark); }
+  .cand-party { font-size: 12px; color: var(--muted); }
+  .cand-tag {
+    font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
+    text-align: center; white-space: nowrap;
+  }
+  .tag-left   { background: var(--red);   color: white; }
+  .tag-right  { background: var(--green); color: white; }
+  .tag-grey   { background: #AAA;         color: white; }
+
+  /* ── SEGUNDA VUELTA ── */
+  .sv-card {
+    border-radius: 12px; padding: 16px; margin: 10px 0;
+    border: 2px solid;
+  }
+  .sv-card.hot { background: #FDF2F2; border-color: var(--red); }
+  .sv-card.mod { background: var(--gray); border-color: #CCC; }
+  .sv-matchup { font-weight: 700; font-size: 15px; margin-bottom: 10px; color: var(--dark); }
+  .sv-bar-wrap { display: flex; gap: 6px; align-items: center; }
+  .sv-bar-container { flex: 1; height: 28px; border-radius: 8px; overflow: hidden; display: flex; }
+  .sv-bar-red   { background: var(--red);   display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:13px; }
+  .sv-bar-green { background: var(--green); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:13px; }
+  .sv-legend { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  /* ── SCENARIO BLOCKS ── */
+  .scenario-block {
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+  }
+  .sc-header {
+    padding: 20px 22px;
+    color: white;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .sc-header.red   { background: linear-gradient(135deg, #922B21, #C0392B); }
+  .sc-header.green { background: linear-gradient(135deg, #145A32, #1E8449); }
+  .sc-header .sc-icon { font-size: 36px; }
+  .sc-header h2 { font-family:'Playfair Display',serif; font-size: 20px; line-height:1.2; }
+  .sc-header p  { font-size: 13px; opacity: 0.85; margin-top: 3px; }
+  .sc-body { background: white; padding: 20px 22px; }
+
+  .impact-grid { display: flex; flex-direction: column; gap: 12px; margin: 14px 0; }
+  .impact-row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--gray); border-radius: 10px; padding: 12px 14px;
+  }
+  .impact-icon { font-size: 24px; min-width: 36px; text-align: center; }
+  .impact-info { flex: 1; }
+  .impact-name  { font-weight: 700; font-size: 14px; color: var(--dark); }
+  .impact-range { font-weight: 700; font-size: 16px; }
+  .impact-range.red   { color: var(--red); }
+  .impact-range.green { color: var(--green); }
+  .impact-desc  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ── QUE HACER ── */
+  .qh-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; margin: 20px 0 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .action-list { display: flex; flex-direction: column; gap: 10px; }
+  .action-item {
+    border-radius: 10px; padding: 14px 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .action-item.danger  { background: var(--red-light);    border-left: 4px solid var(--red); }
+  .action-item.safe    { background: var(--green-light);  border-left: 4px solid var(--green); }
+  .action-item.warn    { background: var(--orange-light); border-left: 4px solid var(--orange); }
+  .action-icon  { font-size: 20px; margin-top: 1px; }
+  .action-title { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+  .action-desc  { font-size: 13px; color: #444; line-height: 1.5; }
+
+  /* ── CRONOGRAMA ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 14px 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 26px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--navy));
+  }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; padding: 0 0 20px 0; position: relative; }
+  .tl-dot {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; z-index: 1; margin-top: 2px;
+  }
+  .tl-dot.orange { background: var(--orange); }
+  .tl-dot.red    { background: var(--red); }
+  .tl-dot.blue   { background: var(--blue); }
+  .tl-dot.navy   { background: var(--navy); }
+  .tl-dot.green  { background: var(--green); }
+  .tl-content { flex: 1; background: var(--gray); border-radius: 10px; padding: 12px 14px; }
+  .tl-date  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .tl-title { font-weight: 700; font-size: 15px; color: var(--dark); margin: 2px 0; }
+  .tl-desc  { font-size: 13px; color: #555; }
+
+  /* ── FAQ ── */
+  .faq-item { border-bottom: 1px solid #EEE; padding: 16px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+  .faq-a { font-size: 14px; color: #444; line-height: 1.6; }
+
+  /* ── RESUMEN FINAL ── */
+  .resumen-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0;
+  }
+  .res-card {
+    border-radius: 14px; padding: 18px 14px; text-align: center;
+  }
+  .res-card.red-card   { background: var(--red-light);   border: 2px solid var(--red); }
+  .res-card.green-card { background: var(--green-light); border: 2px solid var(--green); }
+  .res-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .res-card h3.r { color: var(--red); }
+  .res-card h3.g { color: var(--green); }
+  .res-row { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .res-row:last-child { border-bottom: none; }
+  .res-row .label { color: var(--muted); }
+  .res-row .val-r { color: var(--red);   font-weight: 700; }
+  .res-row .val-g { color: var(--green); font-weight: 700; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: var(--gray); border-radius: 12px;
+    padding: 18px; margin-top: 20px;
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+    border-top: 3px solid var(--gold);
+  }
+  .disclaimer strong { color: var(--navy); }
+
+  /* ── MISC ── */
+  p { margin-bottom: 12px; font-size: 15px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--dark); }
+  ul { padding-left: 20px; margin: 10px 0; }
+  li { font-size: 14px; margin-bottom: 6px; line-height: 1.55; }
+  .note { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-flag">🇨🇴🗳️💰</span>
+  <h1>Elecciones 2026<br>¿Qué pasa con su dinero?</h1>
+  <p class="hero-sub">Guía práctica para inversionistas — sin términos complicados</p>
+  <div class="hero-assets">
+    <span class="asset-pill">💵 Dólar</span>
+    <span class="asset-pill">🛢️ Ecopetrol</span>
+    <span class="asset-pill">📈 Bolsa Colombia</span>
+  </div>
+  <div class="hero-dates">
+    <div class="date-badge"><span class="dt">31 mayo</span>Primera vuelta</div>
+    <div class="date-badge"><span class="dt">21 junio</span>Segunda vuelta</div>
+  </div>
+  <div class="hero-firma">
+    <strong>Germán Gómez Porras</strong><br>
+    Economista · Certificado AMV · Financial Planner Skandia Colombia<br>
+    Metodología DES — Diversificación Estratégica Skandia
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- 01 DE QUÉ TRATA -->
+<div class="section reveal">
+  <h2 class="section-title">📌 ¿De qué se trata esta guía?</h2>
+  <p>En las próximas semanas Colombia vivirá sus elecciones presidenciales más importantes en muchos años. El resultado no solo define quién gobierna — también afecta directamente el valor del <strong>dólar</strong>, las <strong>acciones en bolsa</strong> y la <strong>economía en general</strong>.</p>
+  <div class="callout callout-orange">
+    💡 <strong>Esta guía tiene un solo objetivo:</strong> explicarle en palabras simples qué puede pasar con su dinero según quién gane, y qué puede hacer para protegerse o aprovechar la situación. No necesita saber de finanzas para entenderla.
+  </div>
+</div>
+
+<!-- 02 COMO ESTA HOY -->
+<div class="section reveal">
+  <h2 class="section-title">📊 ¿Cómo están los activos hoy?</h2>
+  <p>Antes de hablar de elecciones, veamos desde dónde arrancamos. Estos son los precios <strong>en tiempo real al 6 de mayo de 2026</strong>:</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Dólar TRM</div>
+      <div class="stat-value">$3.723</div>
+      <div class="stat-change down">⬆ Subió $85 en 2 días</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Ecopetrol</div>
+      <div class="stat-value">$2.660</div>
+      <div class="stat-change down">⬇ −5% hoy</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">COLCAP</div>
+      <div class="stat-value">2.290</div>
+      <div class="stat-change up">⬆ +36% en 1 año</div>
+    </div>
+  </div>
+
+  <div class="callout callout-orange">
+    ⚠️ <strong>¡El dólar subió $85 pesos en solo 2 días!</strong> Eso no es casualidad — el mercado ya está sintiendo el nerviosismo pre-electoral. Es una señal de que hay que estar atentos.
+  </div>
+
+  <p style="margin-top:14px;"><strong>El estado del país en palabras simples:</strong></p>
+  <ul>
+    <li>🔴 Colombia <strong>gasta más de lo que recibe</strong> — el déficit llegó al 6.4% en 2025, uno de los más altos del mundo.</li>
+    <li>🔴 La deuda pública es muy alta — equivale a <strong>$20 millones de pesos por cada colombiano</strong>, incluyendo bebés.</li>
+    <li>🔴 Las <strong>calificadoras internacionales rebajaron la nota</strong> de Colombia en abril de 2026 — esto encarece el crédito y ahuyenta inversionistas.</li>
+    <li>🟡 El petróleo está caro (USD $113/barril) por el conflicto EE.UU.–Irán — eso ayuda al peso, pero es una situación que puede cambiar rápido.</li>
+  </ul>
+  <p class="note">* Si el país llega a las elecciones con las finanzas más débiles de las últimas décadas, un resultado negativo para los mercados golpearía con más fuerza que en años anteriores.</p>
+</div>
+
+<!-- 03 ENCUESTAS -->
+<div class="section reveal">
+  <h2 class="section-title">🗳️ ¿Quiénes están corriendo y qué dicen las encuestas?</h2>
+  <p>La encuesta más reciente (Invamer, 27 de abril de 2026, 3.800 personas encuestadas en todo el país):</p>
+
+  <div class="cand-list">
+    <div class="cand-card left">
+      <div class="cand-pct">44.3%</div>
+      <div class="cand-info">
+        <div class="cand-name">Iván Cepeda</div>
+        <div class="cand-party">Pacto Histórico</div>
+        <div class="cand-party" style="margin-top:4px">Para el mercado: <strong style="color:var(--red)">señal negativa</strong></div>
+      </div>
+      <span class="cand-tag tag-left">Pasa seguro</span>
+    </div>
+    <div class="cand-card right">
+      <div class="cand-pct">21.5%</div>
+      <div class="cand-info">
+        <div class="cand-name">Abelardo de la Espriella</div>
+        <div class="cand-party">Defensores de la Patria</div>
+        <div class="cand-party" style="margin-top:4px">Para el mercado: <strong style="color:var(--green)">señal positiva</strong></div>
+      </div>
+      <span class="cand-tag tag-right">50 / 50</span>
+    </div>
+    <div class="cand-card right">
+      <div class="cand-pct">19.8%</div>
+      <div class="cand-info">
+        <div class="cand-name">Paloma Valencia</div>
+        <div class="cand-party">Centro Democrático</div>
+        <div class="cand-party" style="margin-top:4px">Para el mercado: <strong style="color:var(--green)">señal positiva</strong></div>
+      </div>
+      <span class="cand-tag tag-right">50 / 50</span>
+    </div>
+    <div class="cand-card grey">
+      <div class="cand-pct" style="font-size:18px">~10%</div>
+      <div class="cand-info">
+        <div class="cand-name">Otros candidatos</div>
+        <div class="cand-party">López, Fajardo y otros</div>
+      </div>
+      <span class="cand-tag tag-grey">Difícil</span>
+    </div>
+  </div>
+
+  <div class="callout callout-navy" style="margin-top:16px;">
+    <strong>¿Cómo funciona la elección?</strong><br>
+    📅 <strong>31 mayo — 1ª vuelta:</strong> si alguien pasa del 50%, gana de una vez.<br>
+    📅 <strong>21 junio — 2ª vuelta:</strong> los dos con más votos se enfrentan. Hoy las encuestas apuntan a Cepeda vs. Valencia o De la Espriella.
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin:18px 0 10px;color:var(--navy)">¿Quién le ganaría a Cepeda en segunda vuelta?</h3>
+
+  <div class="sv-card hot">
+    <div class="sv-matchup">🔥 Cepeda  vs.  Paloma Valencia — ¡Muy reñido!</div>
+    <div class="sv-bar-wrap">
+      <div class="sv-bar-container">
+        <div class="sv-bar-red"   style="width:52.4%">Cepeda 51.2%</div>
+        <div class="sv-bar-green" style="width:47.6%">Valencia 46.6%</div>
+      </div>
+    </div>
+    <div class="sv-legend">Diferencia de solo 4.6 puntos — dentro del margen de error. ¡Cualquiera puede ganar!</div>
+  </div>
+
+  <div class="sv-card mod" style="margin-top:10px;">
+    <div class="sv-matchup">Cepeda  vs.  De la Espriella</div>
+    <div class="sv-bar-wrap">
+      <div class="sv-bar-container">
+        <div class="sv-bar-red"   style="width:56.2%">Cepeda 54.6%</div>
+        <div class="sv-bar-green" style="width:43.8%">De la Espriella 42.6%</div>
+      </div>
+    </div>
+    <div class="sv-legend">Cepeda con mayor ventaja — diferencia de 12 puntos.</div>
+  </div>
+
+  <div class="callout callout-orange" style="margin-top:14px;">
+    🔑 <strong>Recuerde:</strong> en 2022 nadie esperaba que Rodolfo Hernández llegara a segunda vuelta, y lo hizo. Las sorpresas son posibles. Por eso hay que estar preparado para cualquier escenario.
+  </div>
+</div>
+
+<!-- 04 PRECEDENTE -->
+<div class="section reveal">
+  <h2 class="section-title">📅 ¿Qué pasó en 2022 cuando ganó Petro?</h2>
+  <p>La mejor manera de entender lo que puede pasar es mirar lo que ya ocurrió:</p>
+
+  <div class="impact-grid">
+    <div class="impact-row">
+      <div class="impact-icon">💵</div>
+      <div class="impact-info">
+        <div class="impact-name">El dólar</div>
+        <div class="impact-range red">De $3.905 → subió a $4.625</div>
+        <div class="impact-desc">+18% en solo 25 días después de que ganó</div>
+      </div>
+    </div>
+    <div class="impact-row">
+      <div class="impact-icon">🛢️</div>
+      <div class="impact-info">
+        <div class="impact-name">Ecopetrol</div>
+        <div class="impact-range red">De $2.760 → cayó a $2.005</div>
+        <div class="impact-desc">−27% en una sola semana</div>
+      </div>
+    </div>
+    <div class="impact-row">
+      <div class="impact-icon">📉</div>
+      <div class="impact-info">
+        <div class="impact-name">Bolsa de Colombia</div>
+        <div class="impact-range red">Cayó 3.8% en un día</div>
+        <div class="impact-desc">Tardó 3 años en recuperarse por completo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-red">
+    💸 <strong>Para ponerlo en perspectiva:</strong> si usted tenía $10 millones en acciones de Ecopetrol antes de esas elecciones, una semana después valían solo <strong>$7.3 millones</strong>. Y sus $10 millones en el banco compraban un 18% menos en dólares.
+  </div>
+
+  <p style="margin-top:16px;font-weight:700;color:var(--navy)">¿Y cuando ganó Duque en 2018? 🎉</p>
+  <p>Todo lo contrario. El dólar se mantuvo estable, Ecopetrol subió <strong>+18% ese año</strong> y quienes tenían acciones colombianas celebraron. El peso se fortaleció y la economía recuperó confianza.</p>
+</div>
+
+<!-- 05 ESCENARIO CEPEDA -->
+<div class="scenario-block reveal">
+  <div class="sc-header red">
+    <div class="sc-icon">🔴</div>
+    <div>
+      <h2>Si gana Cepeda</h2>
+      <p>Probabilidad estimada: 55–60% según encuestas actuales</p>
+    </div>
+  </div>
+  <div class="sc-body">
+    <p>¿Qué podría pasar con sus activos?</p>
+    <div class="impact-grid">
+      <div class="impact-row">
+        <div class="impact-icon">💵</div>
+        <div class="impact-info">
+          <div class="impact-name">Dólar (hoy: $3.723)</div>
+          <div class="impact-range red">Subiría a $3.900 – $4.300</div>
+          <div class="impact-desc">Sus pesos comprarían entre 5% y 15% menos</div>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-icon">🛢️</div>
+        <div class="impact-info">
+          <div class="impact-name">Ecopetrol (hoy: $2.660)</div>
+          <div class="impact-range red">Bajaría a $1.900 – $2.200</div>
+          <div class="impact-desc">Caída entre 17% y 29% desde hoy</div>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-icon">📉</div>
+        <div class="impact-info">
+          <div class="impact-name">Bolsa Colombia (hoy: 2.290)</div>
+          <div class="impact-range red">Bajaría a 1.750 – 2.000 puntos</div>
+          <div class="impact-desc">Caída entre 13% y 24% — todas las grandes empresas</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-red">
+      ⚠️ <strong>¿Por qué pasaría esto?</strong> Continuidad política genera incertidumbre para los negocios. Si Cepeda activa la propuesta de trasladar los ahorros pensionales de fondos privados a Colpensiones, los bancos y fondos perderían recursos enormes — golpeando directamente la bolsa.
+    </div>
+
+    <div class="qh-title" style="color:var(--red)">🛡️ ¿Qué debe hacer usted?</div>
+    <div class="action-list">
+      <div class="action-item danger">
+        <div class="action-icon">💵</div>
+        <div>
+          <div class="action-title">Sus ahorros en pesos</div>
+          <div class="action-desc">Convierta una parte a dólares <strong>ANTES</strong> de las elecciones. Si el dólar llega a $4.000, sus pesos habrán perdido poder de compra significativo.</div>
+        </div>
+      </div>
+      <div class="action-item danger">
+        <div class="action-icon">🛢️</div>
+        <div>
+          <div class="action-title">Acciones de Ecopetrol</div>
+          <div class="action-desc">Reduzca su posición antes de la segunda vuelta. En 2022 la acción cayó 27% en una sola semana — el mercado reacciona en horas, no en días.</div>
+        </div>
+      </div>
+      <div class="action-item danger">
+        <div class="action-icon">📉</div>
+        <div>
+          <div class="action-title">Acciones en Bolsa colombiana</div>
+          <div class="action-desc">Evite comprar más acciones locales hasta que se conozca el equipo económico del nuevo gobierno. La paciencia le protege.</div>
+        </div>
+      </div>
+      <div class="action-item warn">
+        <div class="action-icon">📄</div>
+        <div>
+          <div class="action-title">Fondos de inversión en pesos</div>
+          <div class="action-desc">Revise cuánto de su fondo está en acciones locales. Si es más del 40%, considere rotar hacia fondos globales o dolarizados.</div>
+        </div>
+      </div>
+      <div class="action-item warn">
+        <div class="action-icon">🌎</div>
+        <div>
+          <div class="action-title">Diversifique internacionalmente</div>
+          <div class="action-desc">Países como Chile y México tienen finanzas más sanas. Tener parte de su dinero fuera de Colombia siempre protege contra shocks locales.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-red" style="margin-top:16px;">
+      ⚡ <strong>Alerta clave:</strong> si el 1 de junio amanece con Cepeda por encima del 47% en primera vuelta, no espere a la segunda vuelta para actuar. El mercado ya habrá reaccionado el domingo por la noche a nivel internacional.
+    </div>
+  </div>
+</div>
+
+<!-- 06 ESCENARIO OPOSICION -->
+<div class="scenario-block reveal">
+  <div class="sc-header green">
+    <div class="sc-icon">🟢</div>
+    <div>
+      <h2>Si gana la oposición</h2>
+      <p>Valencia o De la Espriella — Probabilidad: 40–45%. ¡Sorpresa posible!</p>
+    </div>
+  </div>
+  <div class="sc-body">
+    <p>¿Qué podría pasar con sus activos?</p>
+    <div class="impact-grid">
+      <div class="impact-row">
+        <div class="impact-icon">💵</div>
+        <div class="impact-info">
+          <div class="impact-name">Dólar (hoy: $3.723)</div>
+          <div class="impact-range green">Bajaría a $3.300 – $3.500</div>
+          <div class="impact-desc">Sus pesos comprarían entre 6% y 11% más</div>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-icon">🛢️</div>
+        <div class="impact-info">
+          <div class="impact-name">Ecopetrol (hoy: $2.660)</div>
+          <div class="impact-range green">Subiría a $2.900 – $3.300</div>
+          <div class="impact-desc">Ganancia entre 9% y 24% — fracking reactiva la empresa</div>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-icon">📈</div>
+        <div class="impact-info">
+          <div class="impact-name">Bolsa Colombia (hoy: 2.290)</div>
+          <div class="impact-range green">Subiría a 2.500 – 2.800 puntos</div>
+          <div class="impact-desc">Ganancia entre 9% y 22% — bancos y energía lideran</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-green">
+      ✅ <strong>¿Por qué pasaría esto?</strong> Un gobierno de derecha o centro-derecha envía la señal de que Colombia vuelve a ser un destino atractivo para invertir — trae dólares al país, fortalece el peso, y Ecopetrol se beneficia si se aprueba explorar nuevos campos.
+    </div>
+
+    <div class="qh-title" style="color:var(--green)">📈 ¿Qué debe hacer usted?</div>
+    <div class="action-list">
+      <div class="action-item safe">
+        <div class="action-icon">💵</div>
+        <div>
+          <div class="action-title">Sus dólares guardados</div>
+          <div class="action-desc">Buen momento para convertir una parte a pesos colombianos — el peso suele apreciarse con un gobierno de derecha. No tiene que vender todo, pero puede aprovechar el movimiento.</div>
+        </div>
+      </div>
+      <div class="action-item safe">
+        <div class="action-icon">🛢️</div>
+        <div>
+          <div class="action-title">Acciones de Ecopetrol</div>
+          <div class="action-desc">Es el activo con mayor potencial. Si se aprueba exploración y fracking, la acción podría llegar a $3.000–$3.300. Momento para acumular gradualmente.</div>
+        </div>
+      </div>
+      <div class="action-item safe">
+        <div class="action-icon">🏦</div>
+        <div>
+          <div class="action-title">Acciones bancarias colombianas</div>
+          <div class="action-desc">Bancolombia, Davivienda y Grupo Aval serían los grandes ganadores — sin amenaza de reforma pensional. Momento para aumentar exposición.</div>
+        </div>
+      </div>
+      <div class="action-item safe">
+        <div class="action-icon">📈</div>
+        <div>
+          <div class="action-title">Fondos de renta variable local</div>
+          <div class="action-desc">Aumente gradualmente la exposición. El rally post-electoral puede durar 6 a 12 meses si el gobierno nombra un buen equipo económico.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-green" style="margin-top:16px;">
+      💡 <strong>Consejo:</strong> incluso si gana la oposición, no tome decisiones apresuradas. El rally puede durar semanas. Tiene tiempo para actuar con calma junto a su asesor.
+    </div>
+  </div>
+</div>
+
+<!-- 07 CRONOGRAMA -->
+<div class="section reveal">
+  <h2 class="section-title">🗓️ Calendario — ¿Cuándo actuar?</h2>
+  <p>Este es su mapa de ruta para los próximos 2 meses:</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot orange">⚡</div>
+      <div class="tl-content">
+        <div class="tl-date">Ahora mismo — Mayo 2026</div>
+        <div class="tl-title">Dólar sube, elecciones cerca</div>
+        <div class="tl-desc">Compre protección en dólares. Revise su portafolio con su asesor. El momento de prepararse es <strong>antes</strong>, no después.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red">🗳️</div>
+      <div class="tl-content">
+        <div class="tl-date">31 de mayo — Primera vuelta</div>
+        <div class="tl-title">Resultados esa misma noche</div>
+        <div class="tl-desc">Si Cepeda supera el 47%: refuerce su protección de inmediato. Si la oposición sorprende: prepare su estrategia de inversión.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot blue">👀</div>
+      <div class="tl-content">
+        <div class="tl-date">1 al 21 de junio — Entre vueltas</div>
+        <div class="tl-title">Campaña y más encuestas</div>
+        <div class="tl-desc">Monitoree semanalmente. Hable con su asesor. El mercado se moverá con cada encuesta nueva.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot navy">🏆</div>
+      <div class="tl-content">
+        <div class="tl-date">21 de junio — Segunda vuelta</div>
+        <div class="tl-title">El día decisivo</div>
+        <div class="tl-desc">El mercado reacciona antes de que usted despierte el lunes. Los índices internacionales ya operan desde el domingo por la noche.</div>
+      </div>
+    </div>
+    <div class="tl-item" style="padding-bottom:0">
+      <div class="tl-dot green">🔑</div>
+      <div class="tl-content">
+        <div class="tl-date">22 de junio en adelante</div>
+        <div class="tl-title">Los primeros anuncios del ganador</div>
+        <div class="tl-desc">El equipo económico que anuncie (especialmente el Ministro de Hacienda) es <strong>más importante que el candidato mismo</strong> para los mercados.</div>
+      </div>
+    </div>
+  </div>
+  <div class="callout callout-orange" style="margin-top:4px;">
+    🏁 En finanzas, quien actúa <strong>ANTES</strong> de los eventos importantes siempre tiene ventaja sobre quien reacciona <strong>DESPUÉS</strong>.
+  </div>
+</div>
+
+<!-- 08 FAQ -->
+<div class="section reveal">
+  <h2 class="section-title">❓ Preguntas que nos hacen nuestros clientes</h2>
+  <div class="faq-item">
+    <div class="faq-q">¿Debo sacar todo mi dinero del país si gana Cepeda?</div>
+    <div class="faq-a">No necesariamente. Sacar todo tiene costos altos y no siempre es la mejor estrategia. Lo inteligente es tener una parte protegida en dólares o inversiones internacionales, y esperar cómo se configura el nuevo gobierno antes de tomar decisiones drásticas.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">¿El dólar siempre sube cuando gana la izquierda?</div>
+    <div class="faq-a">Históricamente sí en Colombia. En 2022 cuando ganó Petro, el dólar subió 18% en 25 días. Pero la magnitud depende de quién maneje la economía. Un buen Ministro de Hacienda puede calmar los mercados aunque gane un candidato de izquierda.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Tengo mi pensión voluntaria en Skandia, ¿debo preocuparme?</div>
+    <div class="faq-a">Depende de cómo está distribuida. Si tiene alta exposición a acciones colombianas o Ecopetrol, sería prudente revisar la distribución antes de las elecciones. Si ya está diversificado globalmente (acciones internacionales, dólares, commodities), está mejor protegido.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">¿La bolsa puede recuperarse aunque gane Cepeda?</div>
+    <div class="faq-a">Sí, puede. En 2022 rebotó parcialmente después del shock inicial. La clave está en el equipo económico: si Cepeda nombra un Ministro de Hacienda técnico, los mercados se tranquilizan en semanas.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">¿Cuál es el peor escenario posible?</div>
+    <div class="faq-a">Que Cepeda gane directamente en primera vuelta con más del 50% (sin necesidad de segunda vuelta). Las probabilidades son bajas, pero no imposibles si la oposición sigue muy dividida. En ese caso el shock sería mayor y más rápido.</div>
+  </div>
+</div>
+
+<!-- 09 RESUMEN -->
+<div class="section reveal">
+  <h2 class="section-title">✅ Resumen rápido</h2>
+  <p>Todo en una sola mirada:</p>
+  <div class="resumen-grid">
+    <div class="res-card red-card">
+      <h3 class="r">🔴 Si gana Cepeda</h3>
+      <div class="res-row"><span class="label">Dólar</span><span class="val-r">Sube</span></div>
+      <div class="res-row"><span class="label">Ecopetrol</span><span class="val-r">Baja</span></div>
+      <div class="res-row"><span class="label">Bolsa</span><span class="val-r">Baja</span></div>
+      <div class="res-row"><span class="label">Sus pesos</span><span class="val-r">Valen menos</span></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--red);font-weight:700;">
+        👉 Protéjase en dólares y reduzca acciones colombianas
+      </div>
+    </div>
+    <div class="res-card green-card">
+      <h3 class="g">🟢 Si gana oposición</h3>
+      <div class="res-row"><span class="label">Dólar</span><span class="val-g">Baja</span></div>
+      <div class="res-row"><span class="label">Ecopetrol</span><span class="val-g">Sube</span></div>
+      <div class="res-row"><span class="label">Bolsa</span><span class="val-g">Sube</span></div>
+      <div class="res-row"><span class="label">Sus pesos</span><span class="val-g">Valen más</span></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--green);font-weight:700;">
+        👉 Acumule Ecopetrol y acciones bancarias colombianas
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-orange" style="margin-top:16px;">
+    🌟 <strong>Lo más importante:</strong> ningún resultado electoral es permanente. Colombia siempre se ha recuperado. La clave está en protegerse de los shocks de corto plazo y mantener la visión de largo plazo en su portafolio.
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer reveal">
+  <strong>Nota legal</strong><br>
+  Este documento fue elaborado por <strong>Germán Gómez Porras</strong>, Economista, certificado ante el Autorregulador del Mercado de Valores (AMV) de Colombia y Financial Planner de Skandia Colombia, bajo la Metodología DES. Es de carácter informativo y educativo. <strong>No constituye asesoramiento personalizado de inversión.</strong> Antes de tomar cualquier decisión financiera, consulte siempre con su asesor. Precios al 6 de mayo de 2026.
+</div>
+
+</div><!-- /wrapper -->
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
